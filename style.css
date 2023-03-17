@@ -1,0 +1,251 @@
+:root {
+  font-size: 62.5%;
+
+  --bg-color: #000;
+
+  --text-color: #E1E1E6;
+  --input-txt-color: #7C7C8A;
+  --empty-txt-color: #4E5455;
+  --btn-txt-color: #FFF;
+
+  --hue: 191;
+  --bg-th: hsla(var(--hue), 72%, 13%, 1);
+  --bg-empty: hsla(var(--hue), 65%, 7%, 1);
+  --bg-odd: hsla(var(--hue), 61%, 6%, 0.5);
+  --bg-even: hsla(var(--hue), 65%, 7%, 1);
+  --bg-scrollAndBorder: hsla(var(--hue), 31%, 42%, 1);
+  --btn-fav: hsla(var(--hue), 91%, 25%, 1);
+  --btn-remove: hsla(355, 91%, 66%, 1);
+
+
+}
+
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+#app {
+  margin: 2rem auto;
+  max-width: 112rem;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+}
+
+header .search {
+  display: flex;
+  gap: .8rem;
+  width: 64rem;
+}
+
+header input {
+  width: 100%;
+  padding: 1.6rem;
+  color: var(--input-txt-color);
+  background-color: var(--bg-empty);
+  border: none;
+  border-radius: 5px;
+}
+
+header button {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  gap: .8rem;
+  padding: 1.2rem 3.2rem;
+  background-color: var(--btn-fav);
+  color: var(--btn-txt-color);
+  border-radius: 5px;
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+header button:hover {
+  filter: brightness(1.2);
+}
+
+header button p {
+  align-self: center;
+}
+
+.table {
+  margin-top: 4rem;
+  overflow: hidden;
+
+  max-height: 63rem;
+  overflow-y: overlay;
+}
+
+.noEmpty {
+  border: 1px solid var(--bg-scrollAndBorder);
+  border-radius: 1.2rem;
+
+}
+
+.isEmpty {
+  border-top: 1px solid var(--bg-scrollAndBorder);
+  border-right: 1px solid var(--bg-scrollAndBorder);
+  border-left: 1px solid var(--bg-scrollAndBorder);
+  border-top-right-radius: 1.2rem;
+  border-top-left-radius: 1.2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table * {
+  font-size: 2rem;
+  line-height: 160%;
+  color: var(--text-color);
+}
+
+.table::-webkit-scrollbar {
+  width: 2.2rem;
+}
+
+.table::-webkit-scrollbar-thumb {
+  background-color: var(--bg-scrollAndBorder);
+  border-radius: 1rem;
+
+  border: .8rem solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+
+table th {
+  background: var(--bg-th);
+  text-align: left;
+  font-weight: normal;
+  padding: 1.6rem 4rem;
+}
+
+table th:first-child {
+  width: 50.4rem;
+  border-top-left-radius: .5rem;
+}
+
+table th:last-child {
+  border-top-right-radius: .5rem;
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--bg-odd);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg-even);
+}
+
+tbody tr td {
+  padding: 2.4rem 4rem;
+  text-align: center;
+}
+
+tr+tr {
+  border-top: 1px solid var(--bg-scrollAndBorder);
+}
+
+td.user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+td.user img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+td.user a {
+  text-decoration: none;
+}
+
+td.user a p {
+  font-weight: bold;
+}
+
+td .remove {
+  color: var(--btn-remove);
+  transition: 0.2s;
+}
+
+td .remove:hover {
+  transform: scale(1.1);
+}
+
+.boxEmpty {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--bg-empty);
+  color: var(--empty-txt-color);
+  border-bottom: 1px solid var(--bg-scrollAndBorder);
+  border-left: 1px solid var(--bg-scrollAndBorder);
+  border-right: 1px solid var(--bg-scrollAndBorder);
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  display: flex;
+}
+
+.no-favs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+
+  margin: 22rem auto 22rem;
+}
+
+.no-favs svg {
+  width: 13.2rem;
+  height: 12.5rem;
+}
+
+.no-favs h2 {
+  font-size: 4rem;
+  line-height: 2.5rem;
+  color: var(--no-favs-color);
+}
+
+.hide {
+  display: none;
+}
